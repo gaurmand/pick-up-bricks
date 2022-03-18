@@ -18,39 +18,32 @@ nimber_cache = {}
 def print_nimber_sequence(sequence):
     """Prints the nimber sequence of a pick up bricks game.
     """
-    table = get_sequence_table(sequence)
-    print(table)
+    output_sequence_table(sequence, sys.stdout)
 
 
-def get_sequence_table(sequence):
-    """Returns the nimber sequence as a table string
+def output_sequence_table(sequence, output):
+    """Outputs the nimber sequence as a table string
     """
-    output = io.StringIO()
     output.write("| position | nimber |\n")
     output.write("+----------+--------+\n")
     for position, nimber in enumerate(sequence):
         output.write(f"| {position:<8} | {nimber:>6} |\n")
-    return output.getvalue()
 
 
 def write_nimber_sequence(sequence):
     """Writes the nimber sequence of a pick up bricks game to a csv file.
     """
-    csv = get_sequence_csv(sequence)
-
     filename = f"sequence_{'-'.join(move_set_strings)}_{seq_length}.csv"
-    f = open(filename, "w+")
-    f.write(csv)
+    file = open(filename, "w+")
+    output_sequence_csv(sequence, file)
 
 
-def get_sequence_csv(sequence):
-    """Returns the nimber sequence as csv string
+def output_sequence_csv(sequence, output):
+    """Outputs the nimber sequence as csv string
     """
-    output = io.StringIO()
     output.write("position,nimber\n")
     for position, nimber in enumerate(sequence):
         output.write(f"{position},{nimber}\n")
-    return output.getvalue()
 
 
 def get_nimber_sequence():
