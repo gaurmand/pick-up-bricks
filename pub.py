@@ -69,8 +69,12 @@ def get_nimber(num_bricks):
 def compute_nimber(num_bricks):
     """Computes the nimber equivalent of a pick-up-bricks position.
     """
-    # TODO
-    return 0
+     for i in range(1, num_bricks):
+        mod = num_bricks % (7*i)
+        if mod <= 6:
+            if num_bricks not in nimber_cache:
+                nimber_cache[num_bricks] = mod
+                return mod
 
 
 def mex(int_list):
