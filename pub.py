@@ -16,14 +16,12 @@ nimber_cache = {}
 
 
 def print_nimber_sequence(sequence):
-    """Prints the nimber sequence of a pick up bricks game.
-    """
+    """Prints the nimber sequence of a pick up bricks game."""
     output_sequence_table(sequence, sys.stdout)
 
 
 def output_sequence_table(sequence, output):
-    """Outputs the nimber sequence as a table string
-    """
+    """Outputs the nimber sequence as a table string"""
     output.write("| position | nimber |\n")
     output.write("+----------+--------+\n")
     for position, nimber in enumerate(sequence):
@@ -31,24 +29,21 @@ def output_sequence_table(sequence, output):
 
 
 def write_nimber_sequence(sequence):
-    """Writes the nimber sequence of a pick up bricks game to a csv file.
-    """
+    """Writes the nimber sequence of a pick up bricks game to a csv file."""
     filename = f"sequence_{'-'.join(move_set_strings)}_{seq_length}.csv"
     file = open(filename, "w+")
     output_sequence_csv(sequence, file)
 
 
 def output_sequence_csv(sequence, output):
-    """Outputs the nimber sequence as csv string
-    """
+    """Outputs the nimber sequence as csv string"""
     output.write("position,nimber\n")
     for position, nimber in enumerate(sequence):
         output.write(f"{position},{nimber}\n")
 
 
 def get_nimber_sequence():
-    """Computes the nimber sequence of a pick-up-bricks position up to a specified length.
-    """
+    """Computes the nimber sequence of a pick-up-bricks position up to a specified length."""
     sequence = []
     for i in range(seq_length):
         sequence.append(get_nimber(i))
@@ -56,30 +51,27 @@ def get_nimber_sequence():
 
 
 def get_nimber(num_bricks):
-    """Retrieves the nimber equivalent of a pick-up-bricks position.
-    """
+    """Retrieves the nimber equivalent of a pick-up-bricks position."""
     # TODO
 
     # Instead of computing the same nimbers repeatedly, we should use nimber_cache to store them
     global nimber_cache
 
-    return 0
+    return compute_nimber(num_bricks)
 
 
 def compute_nimber(num_bricks):
-    """Computes the nimber equivalent of a pick-up-bricks position.
-    """
-     for i in range(1, num_bricks):
-        mod = num_bricks % (7*i)
-        if mod <= 6:
-            if num_bricks not in nimber_cache:
-                nimber_cache[num_bricks] = mod
-                return mod
+    """Computes the nimber equivalent of a pick-up-bricks position."""
+    nimber_list = []
+    for move in move_set:
+        position = num_bricks - move
+        if position >= 0:
+            nimber_list.append(compute_nimber(position))
+    return mex(nimber_list)
 
 
 def mex(int_list):
-    """Returns the MEX of a list of integers.
-    """
+    """Returns the MEX of a list of integers."""
     # TODO
     return 0
 
