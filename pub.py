@@ -80,4 +80,4 @@ def mex(int_list):
 
 seq = get_nimber_sequence()
 print_nimber_sequence(seq)
-# write_nimber_sequence(seq)
+write_nimber_sequence(seq)
