@@ -1,5 +1,4 @@
 import sys
-import io
 
 if len(sys.argv) < 3:
     print("Usage example: python pub.py 1,3,4 20")
@@ -81,6 +80,7 @@ def mex(int_list):
     for i in range (max(int_list)):
         if i not in int_list:
             mex = i
+            break
     return mex
 
 
