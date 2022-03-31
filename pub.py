@@ -67,6 +67,9 @@ def compute_nimber(num_bricks):
         position = num_bricks - move
         if position >= 0:
             nimber_list.append(compute_nimber(position))
+
+    if len(nimber_list) == 0:
+        return 0
     return mex(nimber_list)
 
 
@@ -77,6 +80,7 @@ def mex(int_list):
         if i not in int_list:
             mex = i
     return mex
+
 
 seq = get_nimber_sequence()
 print_nimber_sequence(seq)
