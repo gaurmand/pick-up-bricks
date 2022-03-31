@@ -52,12 +52,14 @@ def get_nimber_sequence():
 
 def get_nimber(num_bricks):
     """Retrieves the nimber equivalent of a pick-up-bricks position."""
-    # TODO
-
-    # Instead of computing the same nimbers repeatedly, we should use nimber_cache to store them
     global nimber_cache
 
-    return compute_nimber(num_bricks)
+    if num_bricks in nimber_cache:
+        return nimber_cache[num_bricks]
+    else:
+        nimber = compute_nimber(num_bricks)
+        nimber_cache[num_bricks] = nimber
+        return nimber
 
 
 def compute_nimber(num_bricks):
@@ -66,7 +68,7 @@ def compute_nimber(num_bricks):
     for move in move_set:
         position = num_bricks - move
         if position >= 0:
-            nimber_list.append(compute_nimber(position))
+            nimber_list.append(get_nimber(position))
 
     if len(nimber_list) == 0:
         return 0
