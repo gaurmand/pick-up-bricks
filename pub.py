@@ -177,7 +177,7 @@ def compute_sequence_stats(data):
 #========================================================================================
 def main():
     # output_sequence()
-    output_sequence_period()
-    # output_sequence_stats()
+    # output_sequence_period()
+    output_sequence_stats()
 
 main()
