@@ -183,11 +183,12 @@ def compute_sequence_data():
                 list_row.append(i)
                 list_row.append(j)
                 writer.writerow(list_row)
-                for k in range(i + 2, 10):
-                    list_row.append(k)
-                    writer.writerow(list_row)
-                    if len(list_row):
-                        list_row.pop()
+                for k in range(j + 1, 10):
+                    if (j != k):
+                        list_row.append(k)
+                        writer.writerow(list_row)
+                        if len(list_row):
+                            list_row.pop()
                 list_row.clear()
 
     return list_row
