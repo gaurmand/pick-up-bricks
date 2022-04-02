@@ -169,7 +169,7 @@ def compute_sequence_data():
     # compute data
     with open ('pub_stat.csv', 'w', newline = '') as f:
         writer = csv.writer(f)
-        for i in range (1, 10):
+        for i in range (1, 11):
             list_row.append(i)
             writer.writerow(list_row)
             if len(list_row):
@@ -177,12 +177,12 @@ def compute_sequence_data():
         list_row.clear()
 
         # for sequence of upto 3 numbers
-        for i in range (1, 10):
-            for j in range (i + 1, 10):
+        for i in range (1, 11):
+            for j in range (i + 1, 11):
                 list_row.append(i)
                 list_row.append(j)
                 writer.writerow(list_row)
-                for k in range(j + 1, 10):
+                for k in range(j + 1, 11):
                     if (j != k):
                         list_row.append(k)
                         writer.writerow(list_row)
