@@ -163,8 +163,7 @@ def output_sequence_stats():
     # data is written to file pub_stat.csv
 import csv
 
-# make a list of all digits -> make combinations and call other functions
-
+# make a list of all digits -> make combinations and write to csv
 def compute_sequence_data():
     list_row = list()    
     # compute data
