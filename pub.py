@@ -159,8 +159,8 @@ def output_sequence_stats():
     data = compute_sequence_data()
     stats = compute_sequence_stats(data)
 
-    # TODO: print data and stats (or write to a file)
-
+    # TODO: print stats (or write to a file)
+    # data is written to file pub_stat.csv
 import csv
 
 # make a list of all digits -> make combinations and call other functions
