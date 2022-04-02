@@ -1,5 +1,7 @@
 import sys
 
+from numpy import empty
+
 #========================================================================================
 # Input/Output
 #========================================================================================
@@ -159,11 +161,36 @@ def output_sequence_stats():
 
     # TODO: print data and stats (or write to a file)
 
+import csv
+
+# make a list of all digits -> make combinations and call other functions
 
 def compute_sequence_data():
-    # TODO: compute data
+    list_row = list()    
+    # compute data
+    with open ('pub_stat.csv', 'w', newline = '') as f:
+        writer = csv.writer(f)
+        for i in range (1, 10):
+            list_row.append(i)
+            writer.writerow(list_row)
+            if len(list_row):
+                list_row.pop()
+        list_row.clear()
 
-    return 0
+        # for sequence of upto 3 numbers
+        for i in range (1, 10):
+            for j in range (i + 1, 10):
+                list_row.append(i)
+                list_row.append(j)
+                writer.writerow(list_row)
+                for k in range(i + 2, 10):
+                    list_row.append(k)
+                    writer.writerow(list_row)
+                    if len(list_row):
+                        list_row.pop()
+                list_row.clear()
+
+    return list_row
 
 
 def compute_sequence_stats(data):
