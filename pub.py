@@ -198,6 +198,16 @@ def compute_sequence_stats(data):
 
     return 0
 
+def gen_seq():
+    with open('pub_stat.csv', 'r') as file:
+        reader = csv.reader(file)
+        for row in reader:
+            #print(row)
+            integer_list = list(map(int, row))
+            #print(integer_list)
+            print("sequence_period:", get_sequence_period(integer_list))
+            print("max_nimber: ", get_max_nimber(integer_list))
+
 
 #========================================================================================
 # Main Function
