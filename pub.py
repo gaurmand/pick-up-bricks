@@ -216,5 +216,6 @@ def main():
     # output_sequence()
     # output_sequence_period()
     output_sequence_stats()
+    gen_seq()
 
 main()
